@@ -26,3 +26,7 @@ jobs:
         with:
           branch: gh-pages
           folder: gh-page/dist/gh-page
+          github_access_token: ${{ secrets.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 }}
+
+permissions:
+  contents: write
