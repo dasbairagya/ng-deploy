@@ -22,11 +22,10 @@ jobs:
         run: npm install && npm run gh-build && cp dist/gh-page/index.html dist/gh-page/404.html
 
       - name: Deploy
-        uses: action/dasbairagya@1.0.0
+        uses: action/dasbairagya/github-pages-deploy-action@4.1.1
         with:
           branch: gh-pages
           folder: gh-page/dist/gh-page
-          github_access_token: ${{ secrets.GH_TOKEN }}
 
 permissions:
   contents: write
