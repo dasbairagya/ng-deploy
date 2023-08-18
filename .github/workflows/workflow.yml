@@ -7,7 +7,7 @@ on:
 
 jobs:
   build:
-    runs-on: ubantu-latest
+    runs-on: macos-latest
 
     strategy:
       matrix:
@@ -26,7 +26,7 @@ jobs:
         with:
           branch: gh-pages
           folder: gh-page/dist/gh-page
-          github_access_token: ${{ secrets.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 }}
+          github_access_token: ${{ secrets.GH_TOKEN }}
 
 permissions:
   contents: write
