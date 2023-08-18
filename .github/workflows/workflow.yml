@@ -1,0 +1,28 @@
+name: Github Pages Deploy
+
+on:
+  push:
+    branches:
+      - "master"
+
+jobs:
+  build:
+    runs-on: ubantu-latest
+
+    strategy:
+      matrix:
+        node-version: [14.17]
+    
+    steps:
+      - name: Checkout
+        uses: action/checkout@v1
+
+      - name: Install and build
+        working-directory: ./gh-page
+        run: npm install && npm run gh-build && cp dist/gh-page/index.html dist/gh-page/404.html
+
+      - name: Deploy
+        uses: dasbairagya/github-pages-deploy-action@4.1.1
+        with:
+          branch: gh-pages
+          folder: gh-page/dist/gh-page
